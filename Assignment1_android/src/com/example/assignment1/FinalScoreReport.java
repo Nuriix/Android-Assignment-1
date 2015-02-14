@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 public class FinalScoreReport extends Activity {
 	
+	/** **/
+	TextView tv3;
 	TextView tv;
 	TextView tv2;
 	
