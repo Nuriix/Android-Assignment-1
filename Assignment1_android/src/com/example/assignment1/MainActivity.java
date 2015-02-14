@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 		EditText exam2 = (EditText) findViewById(R.id.test2);
 		EditText exam3 = (EditText) findViewById(R.id.test3);
 		EditText finalScore = (EditText) findViewById(R.id.finalScore);
-		
+		 
 		Bundle bundle = new Bundle();
 		bundle.putString("name", name.getText().toString());
 		bundle.putString("asg1", asg1.getText().toString());
