@@ -7,31 +7,40 @@ import android.widget.TextView;
 
 public class FinalScoreReport extends Activity {
 	
-	/** **/
-	TextView tv3;
-	TextView tv;
-	TextView tv2;
+	TextView t;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.second);
 		
 		//get Bundle object passed in
 		Bundle bundle = getIntent().getExtras();
-		tv = new TextView(this);
-		tv = (TextView) findViewById(R.id.test);
-		//tv2 = new TextView(this);
-
-		tv.setText(bundle.getString("name"));
-		setContentView(R.layout.second);
-		//tv.appendText("Step Two: fry egg");
+		t = new TextView(this);
+		//set textviews
+		t = (TextView) findViewById(R.id.name);
+		t.setText(bundle.getString("name"));
+		t = (TextView) findViewById(R.id.assignment1);
+		t.setText(bundle.getString("asg1"));
+		t = (TextView) findViewById(R.id.assignment2);
+		t.setText(bundle.getString("asg2"));
+		t = (TextView) findViewById(R.id.assignment3);
+		t.setText(bundle.getString("asg3"));
+		t = (TextView) findViewById(R.id.exam1);
+		t.setText(bundle.getString("exam1"));
+		t = (TextView) findViewById(R.id.exam2);
+		t.setText(bundle.getString("exam2"));
+		t = (TextView) findViewById(R.id.exam3);
+		t.setText(bundle.getString("exam3"));
+		t = (TextView) findViewById(R.id.total);
+		t.setText(bundle.getString("final"));
 		//mHandler.postDelayed(mUpdateUITimerTask, 5 * 1000);
 	}
 	
 	private final Runnable mUpdateUITimerTask = new Runnable() {
 	    public void run() {
-	        tv2.setText("Second text to display!");
-	        setContentView(tv2);
+	        t.setText("");
+	        setContentView(t);
 	    }
 	};
 	private final Handler mHandler = new Handler();
