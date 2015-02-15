@@ -206,7 +206,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/compute"
         android:layout_below="@+id/compute"
-        android:text="Summary Report" />
+        android:text="Summary Report" 
+        android:onClick="summaryReport"/>
 
     <Button
         android:id="@+id/exit"
