@@ -188,6 +188,6 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/compute"
         android:layout_marginTop="5dp"
-        android:text="Final Scores Report" />
+        android:text="Final Score Report" />
 
 </RelativeLayout>

@@ -14,11 +14,9 @@ public class SummaryReport extends Activity {
 	}
 	
 	public void onClick(View v){
-		startActivity(new Intent(
-								this, MainActivity.class).setFlags(
-								Intent.FLAG_ACTIVITY_NEW_TASK | 
-								Intent.FLAG_ACTIVITY_CLEAR_TASK)
-					);
-	}
+		startActivity(new Intent(this, MainActivity.class).setFlags(
+					Intent.FLAG_ACTIVITY_NEW_TASK | 
+					Intent.FLAG_ACTIVITY_CLEAR_TASK)
+	);}
 	
 }

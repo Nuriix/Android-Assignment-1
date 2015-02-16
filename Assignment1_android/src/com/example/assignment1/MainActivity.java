@@ -11,11 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends Activity {
-
+	
+	EditText studentName;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		studentName = (EditText) findViewById(R.id.name);
 		
 		Button compute = (Button) findViewById(R.id.compute);
 		compute.setOnClickListener(new clsOnClickListener());
@@ -28,9 +31,8 @@ public class MainActivity extends Activity {
 		Button exit = (Button) findViewById(R.id.exit);
 		exit.setOnClickListener(new clsOnClickListener());
 	}
-	
-	public class clsOnClickListener implements View.OnClickListener{
 		
+	public class clsOnClickListener implements View.OnClickListener{
 		EditText name = (EditText) findViewById(R.id.name);
 		EditText asg1 = (EditText) findViewById(R.id.asg1);
 		EditText asg2 = (EditText) findViewById(R.id.asg2);
@@ -42,8 +44,33 @@ public class MainActivity extends Activity {
 		
 		@SuppressWarnings("deprecation")
 		public void onClick(View v){
+		
 			if (v.getId()==R.id.compute){
-				showDialog(0);
+				try{
+					if (((Integer.parseInt(asg1.getText().toString()) < 0) || 
+						(Integer.parseInt(asg1.getText().toString()) > 20)) 
+						||
+						((Integer.parseInt(asg2.getText().toString()) < 0) ||
+						(Integer.parseInt(asg2.getText().toString()) > 20)) 
+						||
+						((Integer.parseInt(asg3.getText().toString()) < 0) ||
+						(Integer.parseInt(asg3.getText().toString()) > 20 )))
+					showDialog(1);
+					
+					else if (((Integer.parseInt(exam1.getText().toString()) < 0) || 
+							(Integer.parseInt(exam1.getText().toString()) > 30)) 
+							||
+							((Integer.parseInt(exam2.getText().toString()) < 0) ||
+							(Integer.parseInt(exam2.getText().toString()) > 30)) 
+							||
+							((Integer.parseInt(exam3.getText().toString()) < 0) ||
+							(Integer.parseInt(exam3.getText().toString()) > 30 )))
+					showDialog(3);
+					
+					else showDialog(0);
+				}catch (NumberFormatException e){
+					showDialog(2);
+				}
 			}
 			
 			else if (v.getId()==R.id.clear){
@@ -98,13 +125,31 @@ public class MainActivity extends Activity {
 	@Override
 	protected Dialog onCreateDialog(int id){
 		switch(id){
-		case 0:
+		case 1:
 			Builder alert = new AlertDialog.Builder(this);
-			alert.setTitle("Please enter a valide score");
+			alert.setTitle("Please enter the grade for assignment between \"0-20\"");
 			alert.setPositiveButton("OK", null);
 			return alert.create();
+			
+		case 2:
+			Builder alert2 = new AlertDialog.Builder(this);
+			alert2.setTitle("Please fill all the fields and enter a valid numeric score.");
+			alert2.setPositiveButton("OK", null);
+			return alert2.create();
+			
+		case 3:
+			Builder alert3 = new AlertDialog.Builder(this);
+			alert3.setTitle("Please enter the grade for test between \"0-30\"");
+			alert3.setPositiveButton("OK", null);
+			return alert3.create();
 		}
-		return null;
+		Builder alert = new AlertDialog.Builder(this);
+		alert.setTitle("Final score for  \"" + 
+						studentName.getText().toString() + "\"" +
+						" has been computed");
+		alert.setPositiveButton("OK", null);
+		alert.setMessage("Please click \n \"Final Score Report\" \n to check result.");
+		return alert.create();
 	}
 
 }
