@@ -22,7 +22,7 @@ public class FinalScoreReport extends Activity {
 		Bundle bundle = getIntent().getExtras();
 		t = new TextView(this);
 		//set textviews
-		t = (TextView) findViewById(R.id.name);
+		t = (TextView) findViewById(R.id.studentName);
 		t.setText(bundle.getString("name"));
 		t = (TextView) findViewById(R.id.assignment1);
 		t.setText(bundle.getString("asg1"));
@@ -36,8 +36,8 @@ public class FinalScoreReport extends Activity {
 		t.setText(bundle.getString("exam2"));
 		t = (TextView) findViewById(R.id.exam3);
 		t.setText(bundle.getString("exam3"));
-		t = (TextView) findViewById(R.id.total);
-		t.setText(bundle.getString("final"));
+		//t = (TextView) findViewById(R.id.total);
+		//t.setText(bundle.getString("final"));
 		//mHandler.postDelayed(mUpdateUITimerTask, 5 * 1000);
 	}
 	

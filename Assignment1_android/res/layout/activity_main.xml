@@ -1,118 +1,95 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.assignment1.MainActivity" >
+    android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="Grade Calculator"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold" />
+        android:textStyle="bold" 
+        android:textColor="#FF0000" >
+    </TextView>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_below="@+id/name"
-        android:layout_marginTop="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="15dp"
         android:text="Student Name"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
-        android:ems="10" >
-
-        <requestFocus />
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/title"
+        android:ems="9" >
     </EditText>
         
     <EditText
         android:id="@+id/asg1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_below="@+id/TextView01"
-        android:layout_marginTop="-35dp"
-        android:layout_toRightOf="@+id/textView2"
-        android:ems="10"
-        android:gravity="center_vertical" />
+        android:layout_alignLeft="@+id/name"
+        android:layout_below="@+id/name"
+        android:ems="5" >
+    </EditText>
 
     <EditText
         android:id="@+id/asg2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/asg1"
-        android:layout_alignRight="@+id/asg1"
         android:layout_below="@+id/asg1"
-        android:ems="10" />
+        android:ems="5" />
     
     <EditText 
         android:id="@+id/asg3" 
         android:layout_width="wrap_content" 
         android:layout_height="wrap_content" 
-        android:layout_alignRight="@+id/asg2" 
-        android:layout_alignTop="@+id/TextView03" 
-        android:layout_marginTop="-13dp" 
-        android:layout_toRightOf="@+id/textView2" 
-        android:ems="10" />
+        android:layout_alignLeft="@+id/asg2" 
+        android:layout_below="@+id/asg2" 
+        android:ems="5" />
     
     <EditText 
         android:id="@+id/test1" 
         android:layout_width="wrap_content" 
         android:layout_height="wrap_content" 
-        android:layout_alignBottom="@+id/textView3" 
-        android:layout_toLeftOf="@+id/asg3" 
-        android:layout_toRightOf="@+id/textView3" 
-        android:ems="10" 
-        android:inputType="number" />
+        android:layout_alignLeft="@+id/asg3" 
+        android:layout_below="@+id/asg3" 
+        android:ems="5" />
 
     <EditText 
         android:id="@+id/test2" 
         android:layout_width="wrap_content" 
         android:layout_height="wrap_content" 
-        android:layout_alignBottom="@+id/textView4" 
-        android:layout_alignRight="@+id/test1" 
-        android:layout_toRightOf="@+id/textView4" 
-        android:ems="10" />
+        android:layout_alignLeft="@+id/test1" 
+        android:layout_below="@+id/test1" 
+        android:ems="5" />
     
-    <EditText 
-        android:id="@+id/test3" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        android:layout_alignBottom="@+id/textView5" 
-        android:layout_alignRight="@+id/test2" 
-        android:layout_toRightOf="@+id/textView5" 
-        android:ems="10" />
+    <EditText
+        android:id="@+id/test3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/test2"
+        android:layout_below="@+id/test2"
+        android:ems="5" >
+    </EditText>
     
-    <EditText 
-        android:id="@+id/finalScore" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        android:layout_alignLeft="@+id/textView6" 
-        android:layout_alignRight="@+id/textView6" 
-        android:layout_alignTop="@+id/textView4" 
-        android:ems="10" />
-
     <TextView
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView02"
-        android:layout_below="@+id/editText2"
-        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="15dp"
         android:text="Assignment 1"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -120,8 +97,9 @@
         android:id="@+id/TextView02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/TextView03"
-        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignLeft="@+id/TextView01"
+        android:layout_below="@+id/TextView01"
+        android:layout_marginTop="15dp"
         android:text="Assignment 2"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -130,8 +108,8 @@
         android:layout_width="wrap_content" 
         android:layout_height="wrap_content" 
         android:layout_alignLeft="@+id/TextView02" 
-        android:layout_below="@+id/asg2" 
-        android:layout_marginTop="21dp" 
+        android:layout_below="@+id/TextView02"
+        android:layout_marginTop="15dp" 
         android:text="Assignment 3" 
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
@@ -139,10 +117,11 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView03"
-        android:layout_below="@+id/asg3"
-        android:layout_marginTop="18dp"
-        android:text="Test 1" />
+        android:layout_alignRight="@+id/TextView03"
+        android:layout_below="@+id/TextView03"
+        android:layout_marginTop="14dp"
+        android:text="Test 1"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/textView4"
@@ -150,8 +129,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/textView3"
-        android:layout_marginTop="18dp"
-        android:text="Test 2" />  
+        android:layout_marginTop="14dp"
+        android:text="Test 2" 
+        android:textAppearance="?android:attr/textAppearanceMedium" />  
 
     <TextView
         android:id="@+id/textView5"
@@ -159,74 +139,57 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView4"
         android:layout_below="@+id/textView4"
-        android:layout_marginTop="16dp"
-        android:text="Test 3" />
-
-    <TextView android:id="@+id/textView6" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        android:layout_below="@+id/test1" 
-        android:layout_toRightOf="@+id/clear" 
-        android:text="Final Score" 
-        android:textStyle="italic" />
-    
-    <Button
-        android:id="@+id/clear"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/compute"
-        android:layout_toRightOf="@+id/compute"
-        android:text="Clear" />
-
-    <Button
-        android:id="@+id/compute"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_below="@+id/textView5"
-        android:text="Compute" />
-
-    <Button
-        android:id="@+id/finalReport"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/clear"
-        android:layout_alignBottom="@+id/clear"
-        android:layout_toRightOf="@+id/clear"
-        android:text="Final Scores Report" 
-        android:onClick="finalClick"/>
-
-    <Button
-        android:id="@+id/sumReport"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/compute"
-        android:layout_below="@+id/compute"
-        android:text="Summary Report" 
-        android:onClick="summaryReport"/>
+        android:layout_marginTop="14dp"
+        android:text="Test 3" 
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
         android:id="@+id/exit"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/sumReport"
-        android:layout_toRightOf="@+id/sumReport"
+        android:layout_alignParentRight="true"
+		android:layout_alignBaseline="@+id/compute"
         android:text="Exit" />
 
     <Button
-        android:id="@+id/more"
+        android:id="@+id/compute"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/finalReport"
-        android:layout_toRightOf="@+id/exit"
-        android:text="More" />
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/test3"
+        android:layout_marginTop="5dp"
+        android:text="Compute" />
 
-    
+    <Button
+        android:id="@+id/clear"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/compute"
+        android:layout_marginLeft="150dp"
+        android:text="Clear" />
+
+    <Button
+        android:id="@+id/sumReport"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/finalReport"
+        android:onClick="summaryReport"
+        android:text="Summary Report" />
+
+    <Button
+        android:id="@+id/finalReport"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/compute"
+        android:layout_marginTop="5dp"
+        android:text="Final Scores Report"
+        android:onClick="finalClick" />
 
 </RelativeLayout>

@@ -24,14 +24,14 @@ public class MainActivity extends Activity {
 
 		Intent i = new Intent(this, FinalScoreReport.class);
 
-		EditText name = (EditText) findViewById(R.id.editText2);
+		EditText name = (EditText) findViewById(R.id.name);
 		EditText asg1 = (EditText) findViewById(R.id.asg1);
 		EditText asg2 = (EditText) findViewById(R.id.asg2);
 		EditText asg3 = (EditText) findViewById(R.id.asg3);
 		EditText exam1 = (EditText) findViewById(R.id.test1);
 		EditText exam2 = (EditText) findViewById(R.id.test2);
 		EditText exam3 = (EditText) findViewById(R.id.test3);
-		EditText finalScore = (EditText) findViewById(R.id.finalScore);
+		//EditText finalScore = (EditText) findViewById(R.id.finalScore);
 
 		Bundle bundle = new Bundle();
 		bundle.putString("name", name.getText().toString());
@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 		bundle.putString("exam1", exam1.getText().toString());
 		bundle.putString("exam2", exam2.getText().toString());
 		bundle.putString("exam3", exam3.getText().toString());
-		bundle.putString("final", finalScore.getText().toString());
+		//bundle.putString("final", finalScore.getText().toString());
 
 		//attach bundle to intent object
 		i.putExtras(bundle);
