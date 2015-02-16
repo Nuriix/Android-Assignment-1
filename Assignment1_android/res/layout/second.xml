@@ -76,5 +76,5 @@
         android:layout_gravity="center"
         android:text="Back" 
         android:onClick="onClick"/>
-
+    
 </LinearLayout>

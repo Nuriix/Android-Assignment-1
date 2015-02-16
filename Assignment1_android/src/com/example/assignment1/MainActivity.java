@@ -1,11 +1,17 @@
 package com.example.assignment1;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends Activity {
@@ -14,6 +20,17 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		Button exit = (Button) findViewById(R.id.exit);
+		exit.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+				System.exit(0);
+			}
+		});
 	}
 
 	/**
@@ -56,6 +73,26 @@ public class MainActivity extends Activity {
 	public void summaryReport(View v){
 		Intent i = new Intent(this, SummaryReport.class);
 		startActivity(i);
+	}
+	
+	/**
+	 * Compute button
+	 * @param v View object
+	 */
+	public void compute(View v){
+		showDialog(0);
+	}
+	
+	@Override
+	protected Dialog onCreateDialog(int id){
+		switch(id){
+		case 0:
+			Builder alert = new AlertDialog.Builder(this);
+			alert.setTitle("Please enter a valide score");
+			alert.setPositiveButton("OK", null);
+			return alert.create();
+		}
+		return null;
 	}
 
 }
