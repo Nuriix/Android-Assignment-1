@@ -4,12 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,26 +17,20 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		Button compute = (Button) findViewById(R.id.compute);
+		compute.setOnClickListener(new clsOnClickListener());
+		Button clear = (Button) findViewById(R.id.clear);
+		clear.setOnClickListener(new clsOnClickListener());
+		Button finalReport = (Button) findViewById(R.id.finalReport);
+		finalReport.setOnClickListener(new clsOnClickListener());
+		Button sumReport = (Button) findViewById(R.id.sumReport);
+		sumReport.setOnClickListener(new clsOnClickListener());
 		Button exit = (Button) findViewById(R.id.exit);
-		exit.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				finish();
-				System.exit(0);
-			}
-		});
+		exit.setOnClickListener(new clsOnClickListener());
 	}
-
-	/**
-	 * Final Score Report Button
-	 * @param v View object
-	 */
-	public void finalClick(View v){
-
-		Intent i = new Intent(this, FinalScoreReport.class);
-
+	
+	public class clsOnClickListener implements View.OnClickListener{
+		
 		EditText name = (EditText) findViewById(R.id.name);
 		EditText asg1 = (EditText) findViewById(R.id.asg1);
 		EditText asg2 = (EditText) findViewById(R.id.asg2);
@@ -49,38 +39,60 @@ public class MainActivity extends Activity {
 		EditText exam2 = (EditText) findViewById(R.id.test2);
 		EditText exam3 = (EditText) findViewById(R.id.test3);
 		//EditText finalScore = (EditText) findViewById(R.id.finalScore);
+		
+		@SuppressWarnings("deprecation")
+		public void onClick(View v){
+			if (v.getId()==R.id.compute){
+				showDialog(0);
+			}
+			
+			else if (v.getId()==R.id.clear){
+				btnClear(name);
+				btnClear(asg1);
+				btnClear(asg2);
+				btnClear(asg3);
+				btnClear(exam1);
+				btnClear(exam2);
+				btnClear(exam3);
+			}
+			
+			else if (v.getId()==R.id.finalReport){
+				Intent i = new Intent("asg1.finalReport");
 
-		Bundle bundle = new Bundle();
-		bundle.putString("name", name.getText().toString());
-		bundle.putString("asg1", asg1.getText().toString());
-		bundle.putString("asg2", asg2.getText().toString());
-		bundle.putString("asg3", asg3.getText().toString());
-		bundle.putString("exam1", exam1.getText().toString());
-		bundle.putString("exam2", exam2.getText().toString());
-		bundle.putString("exam3", exam3.getText().toString());
-		//bundle.putString("final", finalScore.getText().toString());
+				Bundle bundle = new Bundle();
+				bundle.putString("name", name.getText().toString());
+				bundle.putString("asg1", asg1.getText().toString());
+				bundle.putString("asg2", asg2.getText().toString());
+				bundle.putString("asg3", asg3.getText().toString());
+				bundle.putString("exam1", exam1.getText().toString());
+				bundle.putString("exam2", exam2.getText().toString());
+				bundle.putString("exam3", exam3.getText().toString());
+				//bundle.putString("final", finalScore.getText().toString());
 
-		//attach bundle to intent object
-		i.putExtras(bundle);
+				//attach bundle to intent object
+				i.putExtras(bundle);
 
-		startActivity(i);
-	}
-
-	/**
-	 * Summary Report Button
-	 * @param v View object
-	 */
-	public void summaryReport(View v){
-		Intent i = new Intent(this, SummaryReport.class);
-		startActivity(i);
-	}
-	
-	/**
-	 * Compute button
-	 * @param v View object
-	 */
-	public void compute(View v){
-		showDialog(0);
+				startActivity(i);
+			}
+			
+			else if (v.getId()==R.id.sumReport){
+				Intent i = new Intent("asg1.summaryReport");
+				startActivity(i);
+			}
+			
+			else{	//exit
+				finish();
+				System.exit(0);
+			}
+		}
+		
+		/**
+		 * Clearing text field
+		 * @param text EditText object
+		 */
+		private void btnClear(EditText text){
+			text.getText().clear();
+		}
 	}
 	
 	@Override

@@ -160,8 +160,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/test3"
         android:layout_marginTop="5dp"
-        android:text="Compute" 
-        android:onClick="compute"/>
+        android:text="Compute" />
 
     <Button
         android:id="@+id/clear"
@@ -179,7 +178,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/finalReport"
-        android:onClick="summaryReport"
         android:text="Summary Report" />
 
     <Button
@@ -190,7 +188,6 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/compute"
         android:layout_marginTop="5dp"
-        android:text="Final Scores Report"
-        android:onClick="finalClick" />
+        android:text="Final Scores Report" />
 
 </RelativeLayout>
