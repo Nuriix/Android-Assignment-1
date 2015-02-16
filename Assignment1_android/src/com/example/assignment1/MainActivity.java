@@ -48,24 +48,24 @@ public class MainActivity extends Activity {
 			if (v.getId()==R.id.compute){
 				try{
 					if (((Integer.parseInt(asg1.getText().toString()) < 0) || 
-						(Integer.parseInt(asg1.getText().toString()) > 20)) 
+						(Integer.parseInt(asg1.getText().toString()) > 100)) 
 						||
 						((Integer.parseInt(asg2.getText().toString()) < 0) ||
-						(Integer.parseInt(asg2.getText().toString()) > 20)) 
+						(Integer.parseInt(asg2.getText().toString()) > 100)) 
 						||
 						((Integer.parseInt(asg3.getText().toString()) < 0) ||
-						(Integer.parseInt(asg3.getText().toString()) > 20 )))
+						(Integer.parseInt(asg3.getText().toString()) > 100 )))
 					showDialog(1);
 					
 					else if (((Integer.parseInt(exam1.getText().toString()) < 0) || 
-							(Integer.parseInt(exam1.getText().toString()) > 30)) 
+							(Integer.parseInt(exam1.getText().toString()) > 100)) 
 							||
 							((Integer.parseInt(exam2.getText().toString()) < 0) ||
-							(Integer.parseInt(exam2.getText().toString()) > 30)) 
+							(Integer.parseInt(exam2.getText().toString()) > 100)) 
 							||
 							((Integer.parseInt(exam3.getText().toString()) < 0) ||
-							(Integer.parseInt(exam3.getText().toString()) > 30 )))
-					showDialog(3);
+							(Integer.parseInt(exam3.getText().toString()) > 100 )))
+					showDialog(1);
 					
 					else showDialog(0);
 				}catch (NumberFormatException e){
@@ -127,7 +127,7 @@ public class MainActivity extends Activity {
 		switch(id){
 		case 1:
 			Builder alert = new AlertDialog.Builder(this);
-			alert.setTitle("Please enter the grade for assignment between \"0-20\"");
+			alert.setTitle("Please enter the score between \"0-100\"");
 			alert.setPositiveButton("OK", null);
 			return alert.create();
 			
@@ -136,12 +136,6 @@ public class MainActivity extends Activity {
 			alert2.setTitle("Please fill all the fields and enter a valid numeric score.");
 			alert2.setPositiveButton("OK", null);
 			return alert2.create();
-			
-		case 3:
-			Builder alert3 = new AlertDialog.Builder(this);
-			alert3.setTitle("Please enter the grade for test between \"0-30\"");
-			alert3.setPositiveButton("OK", null);
-			return alert3.create();
 		}
 		Builder alert = new AlertDialog.Builder(this);
 		alert.setTitle("Final score for  \"" + 
