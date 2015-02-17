@@ -13,7 +13,6 @@ import android.widget.EditText;
 public class MainActivity extends Activity {
 	
 	EditText studentName;
-	int individualAverage;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +33,6 @@ public class MainActivity extends Activity {
 	}
 		
 	public class clsOnClickListener implements View.OnClickListener{
-		 
-		
 		EditText name = (EditText) findViewById(R.id.name);
 		EditText asg1 = (EditText) findViewById(R.id.asg1);
 		EditText asg2 = (EditText) findViewById(R.id.asg2);
@@ -43,6 +40,7 @@ public class MainActivity extends Activity {
 		EditText exam1 = (EditText) findViewById(R.id.test1);
 		EditText exam2 = (EditText) findViewById(R.id.test2);
 		EditText exam3 = (EditText) findViewById(R.id.test3);
+		//EditText finalScore = (EditText) findViewById(R.id.finalScore);
 		
 		@SuppressWarnings("deprecation")
 		public void onClick(View v){
@@ -69,16 +67,7 @@ public class MainActivity extends Activity {
 							(Integer.parseInt(exam3.getText().toString()) > 100 )))
 					showDialog(1);
 					
-					else{
-						calculateAverage(Integer.parseInt(asg1.getText().toString()),
-								Integer.parseInt(asg2.getText().toString()),
-								Integer.parseInt(asg3.getText().toString()),
-								Integer.parseInt(exam1.getText().toString()),
-								Integer.parseInt(exam2.getText().toString()),
-								Integer.parseInt(exam3.getText().toString()));
-						
-						showDialog(0);
-					}
+					else showDialog(0);
 				}catch (NumberFormatException e){
 					showDialog(2);
 				}
@@ -96,7 +85,7 @@ public class MainActivity extends Activity {
 			
 			else if (v.getId()==R.id.finalReport){
 				Intent i = new Intent("asg1.finalReport");
-				
+
 				Bundle bundle = new Bundle();
 				bundle.putString("name", name.getText().toString());
 				bundle.putString("asg1", asg1.getText().toString());
@@ -105,8 +94,8 @@ public class MainActivity extends Activity {
 				bundle.putString("exam1", exam1.getText().toString());
 				bundle.putString("exam2", exam2.getText().toString());
 				bundle.putString("exam3", exam3.getText().toString());
-				bundle.putInt("average", individualAverage);
-				
+				//bundle.putString("final", finalScore.getText().toString());
+
 				//attach bundle to intent object
 				i.putExtras(bundle);
 
@@ -131,35 +120,7 @@ public class MainActivity extends Activity {
 		private void btnClear(EditText text){
 			text.getText().clear();
 		}
-		
-		private void calculateAverage(int asg1, int asg2, int asg3,
-									 int test1, int test2, int test3){
-			
-			int asgAverage, testAverage;
-			
-			//assignment average after remove the lowest one
-			if (asg1<asg2 && asg1<asg3)
-				asgAverage = (asg2+asg3)*20/100;
-			else if (asg2<asg1 && asg2<asg3)
-				asgAverage = (asg1+asg3)*20/100;
-			else if (asg3<asg1 && asg3<asg2)
-				asgAverage = (asg1+asg2)*20/100;
-			else
-				asgAverage = (asg1+asg2)*20/100;
-			
-			//test average after remove the lowest one
-			if (test1<test2 && test1<test3)
-				testAverage = (test2+test3)*30/100;
-			else if (test2<test1 && test2<test3)
-				testAverage = (test1+test3)*30/100;
-			else if (test3<test1 && test3<test2)
-				testAverage = (test1+test2)*30/100;
-			else
-				testAverage = (test1+test2)*30/100;
-			
-			individualAverage = asgAverage+testAverage;
-		}
-	}//OnClick
+	}
 	
 	@Override
 	protected Dialog onCreateDialog(int id){
