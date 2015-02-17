@@ -1,7 +1,7 @@
 package com.example.assignment1;
 
 import java.util.ArrayList;
-
+import assignment1.Interface.*;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -13,14 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends Activity {
-	
-	EditText studentName;
-	int individualAverage=-1;
-	ArrayList<Integer> numOfStudent = new ArrayList<Integer>();
-	ArrayList<String> stdName = new ArrayList<String>();
-	
+	private EditText studentName;
+	private int individualAverage=-1;
+	private ArrayList<Integer> numOfStudent = new ArrayList<Integer>();
+	private ArrayList<String> stdName = new ArrayList<String>();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		studentName = (EditText) findViewById(R.id.name);
@@ -37,9 +37,8 @@ public class MainActivity extends Activity {
 		exit.setOnClickListener(new clsOnClickListener());
 	}
 		
-	public class clsOnClickListener implements View.OnClickListener{
-		 
-		
+	private class clsOnClickListener implements View.OnClickListener, Calculation{
+
 		EditText name = (EditText) findViewById(R.id.name);
 		EditText asg1 = (EditText) findViewById(R.id.asg1);
 		EditText asg2 = (EditText) findViewById(R.id.asg2);
@@ -76,7 +75,7 @@ public class MainActivity extends Activity {
 					showDialog(1);
 					
 					else{
-						calculateAverage(Integer.parseInt(asg1.getText().toString()),
+						individualAverageCalculation(Integer.parseInt(asg1.getText().toString()),
 								Integer.parseInt(asg2.getText().toString()),
 								Integer.parseInt(asg3.getText().toString()),
 								Integer.parseInt(exam1.getText().toString()),
@@ -163,7 +162,7 @@ public class MainActivity extends Activity {
 			text.getText().clear();
 		}
 		
-		private void calculateAverage(int asg1, int asg2, int asg3,
+		public void individualAverageCalculation(int asg1, int asg2, int asg3,
 									 int test1, int test2, int test3){
 			
 			int asgAverage, testAverage;
@@ -191,7 +190,7 @@ public class MainActivity extends Activity {
 			individualAverage = asgAverage+testAverage;
 		}
 		
-		private String numericToLetter(int score){
+		 public String numericToLetter(int score){
 			if (score<=100 && score>= 90) return "A";
 			else if (score<90 && score >= 80) return "B";
 			else if (score <80 && score>=70) return "C";
@@ -199,7 +198,7 @@ public class MainActivity extends Activity {
 			else return "E";
 		}
 		
-		private int groupAverageCalculation(ArrayList<Integer> score) {
+		public int groupAverageCalculation(ArrayList<Integer> score) {
 			int groupAverage=0;
 			for (int i=0; i<score.size(); i++){
 				groupAverage += score.get(i);
@@ -207,7 +206,7 @@ public class MainActivity extends Activity {
 			return groupAverage/score.size();
 		}
 		
-		private int passingStudentCalculation(ArrayList<Integer> score) {
+		public int passingStudentCalculation(ArrayList<Integer> score) {
 			int passingStudent=0;
 			for (int i=0; i<score.size(); i++){
 				if (score.get(i) >= 60)
@@ -216,7 +215,7 @@ public class MainActivity extends Activity {
 			return passingStudent;
 		}
 		
-		private void findBestScore(ArrayList<Integer> score){
+		public void findBestScore(ArrayList<Integer> score){
 			int best=score.get(0), secondBest=score.get(0);
 			int bestScorePosition1=0, bestScorePosition2=0;
 			
@@ -258,7 +257,7 @@ public class MainActivity extends Activity {
 		this.bestScorePosition2 = bestScorePosition2;
 		}
 		
-		private String findBestStudent(int first, int second){
+		public String findBestStudent(int first, int second){
 			return stdName.get(first) + ": " + 
 					Integer.toString(numOfStudent.get(bestScorePosition1)) +"%" + "\n" + 
 					stdName.get(second) + ": " +

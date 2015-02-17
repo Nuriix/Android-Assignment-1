@@ -1,7 +1,6 @@
 package com.example.assignment1;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -14,7 +13,7 @@ public class FinalScoreReport extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.second);
-		
+
 		//get Bundle object passed in
 		Bundle bundle = getIntent().getExtras();
 		t = new TextView(this);
