@@ -1,5 +1,7 @@
 package com.example.assignment1;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -14,6 +16,8 @@ public class MainActivity extends Activity {
 	
 	EditText studentName;
 	int individualAverage;
+	ArrayList<Integer> numOfStudent = new ArrayList<Integer>();
+	ArrayList<String> stdName = new ArrayList<String>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,8 @@ public class MainActivity extends Activity {
 		EditText exam1 = (EditText) findViewById(R.id.test1);
 		EditText exam2 = (EditText) findViewById(R.id.test2);
 		EditText exam3 = (EditText) findViewById(R.id.test3);
+		
+		private int bestScorePosition1, bestScorePosition2;
 		
 		@SuppressWarnings("deprecation")
 		public void onClick(View v){
@@ -76,7 +82,8 @@ public class MainActivity extends Activity {
 								Integer.parseInt(exam1.getText().toString()),
 								Integer.parseInt(exam2.getText().toString()),
 								Integer.parseInt(exam3.getText().toString()));
-						
+						numOfStudent.add(individualAverage);
+						stdName.add(studentName.getText().toString());
 						showDialog(0);
 					}
 				}catch (NumberFormatException e){
@@ -114,8 +121,24 @@ public class MainActivity extends Activity {
 			}
 			
 			else if (v.getId()==R.id.sumReport){
-				Intent i = new Intent("asg1.summaryReport");
-				startActivity(i);
+				try{
+					Intent i = new Intent("asg1.summaryReport");
+					
+					Bundle bundle = new Bundle();
+					bundle.putInt("totalNumStudent", numOfStudent.size());
+					bundle.putInt("numOfPass", passingStudentCalculation(numOfStudent));
+					bundle.putInt("groupAverage", groupAverageCalculation(numOfStudent));
+					findBestScore(numOfStudent);
+					bundle.putString("bestStudent", findBestStudent(bestScorePosition1,
+																	bestScorePosition2));
+					
+					//attach bundle to intent object
+					i.putExtras(bundle);
+					
+					startActivity(i);
+				}catch(Exception e){
+					showDialog(3);
+				}
 			}
 			
 			else{	//exit
@@ -123,7 +146,7 @@ public class MainActivity extends Activity {
 				System.exit(0);
 			}
 		}
-		
+
 		/**
 		 * Clearing text field
 		 * @param text EditText object
@@ -159,6 +182,72 @@ public class MainActivity extends Activity {
 			
 			individualAverage = asgAverage+testAverage;
 		}
+		
+		private int groupAverageCalculation(ArrayList<Integer> score) {
+			int groupAverage=0;
+			for (int i=0; i<score.size(); i++){
+				groupAverage += score.get(i);
+			}
+			return groupAverage/score.size();
+		}
+		
+		private int passingStudentCalculation(ArrayList<Integer> score) {
+			int passingStudent=0;
+			for (int i=0; i<score.size(); i++){
+				if (score.get(i) >= 60)
+					passingStudent++;
+			}
+			return passingStudent;
+		}
+		
+		private void findBestScore(ArrayList<Integer> score){
+			int best=score.get(0), secondBest=score.get(0);
+			int bestScorePosition1=0, bestScorePosition2=0;
+			
+			for (int i=1; i<score.size(); i++){
+				if (best < score.get(i)){
+					best = score.get(i);
+					bestScorePosition1 = i;
+				}
+			}
+			
+			if (bestScorePosition1==0){
+				secondBest=score.get(1);
+				bestScorePosition2=1;
+				
+				for (int i=2; i<score.size(); i++){
+					if (secondBest < score.get(i)){
+						secondBest = score.get(i);
+						bestScorePosition2=i;
+					}
+				}
+			}
+			else{
+				for (int i=1; i<bestScorePosition1; i++){
+					if (secondBest < score.get(i)){
+						secondBest = score.get(i);
+						bestScorePosition2=i;
+					}
+				}
+				if (bestScorePosition1 < score.size()){
+					for (int i=bestScorePosition1+1; i<score.size(); i++){
+						if (secondBest < score.get(i)){
+							secondBest = score.get(i);
+							bestScorePosition2=i;
+						}
+					}
+				}
+			}
+		this.bestScorePosition1 = bestScorePosition1;
+		this.bestScorePosition2 = bestScorePosition2;
+		}
+		
+		private String findBestStudent(int first, int second){
+			return stdName.get(first) + ": " + 
+					Integer.toString(numOfStudent.get(bestScorePosition1)) +"%" + "\n" + 
+					stdName.get(second) + ": " +
+					Integer.toString(numOfStudent.get(bestScorePosition2)) + "%";
+		}
 	}//OnClick
 	
 	@Override
@@ -175,6 +264,12 @@ public class MainActivity extends Activity {
 			alert2.setTitle("Please fill all the fields and enter a valid numeric score.");
 			alert2.setPositiveButton("OK", null);
 			return alert2.create();
+			
+		case 3:
+			Builder alert3 = new AlertDialog.Builder(this);
+			alert3.setTitle("Please enter the information for at least two students.");
+			alert3.setPositiveButton("OK", null);
+			return alert3.create();
 		}
 		Builder alert = new AlertDialog.Builder(this);
 		alert.setTitle("Final score for  \"" + 
@@ -184,5 +279,4 @@ public class MainActivity extends Activity {
 		alert.setMessage("Please click \n \"Final Score Report\" \n to check result.");
 		return alert.create();
 	}
-
 }

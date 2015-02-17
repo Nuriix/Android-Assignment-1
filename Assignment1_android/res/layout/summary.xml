@@ -21,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="Total number of students: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -29,23 +28,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Number of passing scores: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
-        android:id="@+id/numOfInvalid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Number of invalide scores: "
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/groupAverage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Group average score: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -53,18 +43,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Best students: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/copyright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:layout_gravity="center"
-        android:text="Copyright: This script was written by Li Zheng Hao"
-        android:textColor="#6699FF"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_marginTop="50dp"
+        android:text="Copyright: This script was written by Li Zheng Hao &amp; Julie Manirath"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#6699FF" />
 
     <Button
         android:id="@+id/backToMain"
