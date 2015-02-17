@@ -15,7 +15,7 @@ import android.widget.EditText;
 public class MainActivity extends Activity {
 	
 	EditText studentName;
-	int individualAverage;
+	int individualAverage=-1;
 	ArrayList<Integer> numOfStudent = new ArrayList<Integer>();
 	ArrayList<String> stdName = new ArrayList<String>();
 	
@@ -99,25 +99,32 @@ public class MainActivity extends Activity {
 				btnClear(exam1);
 				btnClear(exam2);
 				btnClear(exam3);
+				individualAverage=-1;
 			}
 			
 			else if (v.getId()==R.id.finalReport){
-				Intent i = new Intent("asg1.finalReport");
 				
-				Bundle bundle = new Bundle();
-				bundle.putString("name", name.getText().toString());
-				bundle.putString("asg1", asg1.getText().toString());
-				bundle.putString("asg2", asg2.getText().toString());
-				bundle.putString("asg3", asg3.getText().toString());
-				bundle.putString("exam1", exam1.getText().toString());
-				bundle.putString("exam2", exam2.getText().toString());
-				bundle.putString("exam3", exam3.getText().toString());
-				bundle.putInt("average", individualAverage);
-				
-				//attach bundle to intent object
-				i.putExtras(bundle);
-
-				startActivity(i);
+				if(individualAverage>=0){
+					Intent i = new Intent("asg1.finalReport");
+					
+					Bundle bundle = new Bundle();
+					bundle.putString("name", name.getText().toString());
+					bundle.putString("asg1", asg1.getText().toString());
+					bundle.putString("asg2", asg2.getText().toString());
+					bundle.putString("asg3", asg3.getText().toString());
+					bundle.putString("exam1", exam1.getText().toString());
+					bundle.putString("exam2", exam2.getText().toString());
+					bundle.putString("exam3", exam3.getText().toString());
+					bundle.putInt("average", individualAverage);
+					
+					//attach bundle to intent object
+					i.putExtras(bundle);
+	
+					startActivity(i);
+				}
+				else
+					showDialog(4);
+					
 			}
 			
 			else if (v.getId()==R.id.sumReport){
@@ -270,6 +277,12 @@ public class MainActivity extends Activity {
 			alert3.setTitle("Please enter the information for at least two students.");
 			alert3.setPositiveButton("OK", null);
 			return alert3.create();
+			
+		case 4:
+			Builder alert4 = new AlertDialog.Builder(this);
+			alert4.setTitle("Please click the compute button first.");
+			alert4.setPositiveButton("OK", null);
+			return alert4.create();
 		}
 		Builder alert = new AlertDialog.Builder(this);
 		alert.setTitle("Final score for  \"" + 
