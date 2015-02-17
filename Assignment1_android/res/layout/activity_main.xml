@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#FFFF00" >
 
     <TextView
         android:id="@+id/title"
@@ -10,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:text="Grade Calculator"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold" 
+        android:textStyle="bold"
         android:textColor="#FF0000" >
     </TextView>
 
@@ -32,7 +33,7 @@
         android:layout_below="@+id/title"
         android:ems="9" >
     </EditText>
-        
+
     <EditText
         android:id="@+id/asg1"
         android:layout_width="wrap_content"
@@ -49,31 +50,31 @@
         android:layout_alignLeft="@+id/asg1"
         android:layout_below="@+id/asg1"
         android:ems="5" />
-    
-    <EditText 
-        android:id="@+id/asg3" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        android:layout_alignLeft="@+id/asg2" 
-        android:layout_below="@+id/asg2" 
-        android:ems="5" />
-    
-    <EditText 
-        android:id="@+id/test1" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        android:layout_alignLeft="@+id/asg3" 
-        android:layout_below="@+id/asg3" 
+
+    <EditText
+        android:id="@+id/asg3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/asg2"
+        android:layout_below="@+id/asg2"
         android:ems="5" />
 
-    <EditText 
-        android:id="@+id/test2" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        android:layout_alignLeft="@+id/test1" 
-        android:layout_below="@+id/test1" 
+    <EditText
+        android:id="@+id/test1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/asg3"
+        android:layout_below="@+id/asg3"
         android:ems="5" />
-    
+
+    <EditText
+        android:id="@+id/test2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/test1"
+        android:layout_below="@+id/test1"
+        android:ems="5" />
+
     <EditText
         android:id="@+id/test3"
         android:layout_width="wrap_content"
@@ -82,7 +83,7 @@
         android:layout_below="@+id/test2"
         android:ems="5" >
     </EditText>
-    
+
     <TextView
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
@@ -103,16 +104,16 @@
         android:text="Assignment 2"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView 
-        android:id="@+id/TextView03" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        android:layout_alignLeft="@+id/TextView02" 
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView02"
         android:layout_below="@+id/TextView02"
-        android:layout_marginTop="15dp" 
-        android:text="Assignment 3" 
+        android:layout_marginTop="15dp"
+        android:text="Assignment 3"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-    
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -130,8 +131,8 @@
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="14dp"
-        android:text="Test 2" 
-        android:textAppearance="?android:attr/textAppearanceMedium" />  
+        android:text="Test 2"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/textView5"
@@ -140,7 +141,7 @@
         android:layout_alignLeft="@+id/textView4"
         android:layout_below="@+id/textView4"
         android:layout_marginTop="14dp"
-        android:text="Test 3" 
+        android:text="Test 3"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
