@@ -65,7 +65,7 @@
         android:layout_gravity="center" />
     
     <TextView
-        android:id="@+id/Lettertotal"
+        android:id="@+id/letter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />

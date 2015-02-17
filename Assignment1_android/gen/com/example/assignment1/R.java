@@ -25,7 +25,6 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int Lettertotal=0x7f08001d;
         public static final int TextView01=0x7f080009;
         public static final int TextView02=0x7f08000a;
         public static final int TextView03=0x7f08000b;
@@ -47,6 +46,7 @@ public final class R {
         public static final int exit=0x7f08000f;
         public static final int finalReport=0x7f080013;
         public static final int groupAverage=0x7f080022;
+        public static final int letter=0x7f08001d;
         public static final int name=0x7f080002;
         public static final int numOfPass=0x7f080021;
         public static final int studentName=0x7f080015;

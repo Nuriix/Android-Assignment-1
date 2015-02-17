@@ -35,6 +35,8 @@ public class FinalScoreReport extends Activity {
 		t.setText("Test3: " + bundle.getString("exam3") + "%");
 		t = (TextView) findViewById(R.id.total);
 		t.setText("Final Average: " + Integer.toString(bundle.getInt("average")) + "%");
+		t = (TextView) findViewById(R.id.letter);
+		t.setText("Score in letter: " + bundle.getString("scoreInLetter"));
 	}
 	
 	public void onClick(View v){

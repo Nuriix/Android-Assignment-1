@@ -116,6 +116,7 @@ public class MainActivity extends Activity {
 					bundle.putString("exam2", exam2.getText().toString());
 					bundle.putString("exam3", exam3.getText().toString());
 					bundle.putInt("average", individualAverage);
+					bundle.putString("scoreInLetter", numericToLetter(individualAverage));
 					
 					//attach bundle to intent object
 					i.putExtras(bundle);
@@ -188,6 +189,14 @@ public class MainActivity extends Activity {
 				testAverage = (test1+test2)*30/100;
 			
 			individualAverage = asgAverage+testAverage;
+		}
+		
+		private String numericToLetter(int score){
+			if (score<=100 && score>= 90) return "A";
+			else if (score<90 && score >= 80) return "B";
+			else if (score <80 && score>=70) return "C";
+			else if (score < 70 && score >=60) return "D";
+			else return "E";
 		}
 		
 		private int groupAverageCalculation(ArrayList<Integer> score) {
