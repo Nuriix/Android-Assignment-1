@@ -12,6 +12,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * This is the main class that will calculate the grade and 
+ * validate the data and it will pass them to FinalReport class 
+ * and SummaryReport class in order to display different view of report.
+ * 
+ * @author Li Zheng Hao & Julie Manirath
+ *
+ */
 public class MainActivity extends Activity {
 	private EditText studentName;
 	private int individualAverage=-1;
@@ -52,6 +60,9 @@ public class MainActivity extends Activity {
 		@SuppressWarnings("deprecation")
 		public void onClick(View v){
 		
+			/**
+			 * Compute button
+			 */
 			if (v.getId()==R.id.compute){
 				try{
 					if (((Integer.parseInt(asg1.getText().toString()) < 0) || 
@@ -90,6 +101,9 @@ public class MainActivity extends Activity {
 				}
 			}
 			
+			/**
+			 * Clear button
+			 */
 			else if (v.getId()==R.id.clear){
 				btnClear(name);
 				btnClear(asg1);
@@ -101,6 +115,9 @@ public class MainActivity extends Activity {
 				individualAverage=-1;
 			}
 			
+			/**
+			 * Final Report button
+			 */
 			else if (v.getId()==R.id.finalReport){
 				
 				if(individualAverage>=0){
@@ -127,6 +144,9 @@ public class MainActivity extends Activity {
 					
 			}
 			
+			/**
+			 * Summary Report Button
+			 */
 			else if (v.getId()==R.id.sumReport){
 				try{
 					Intent i = new Intent("asg1.summaryReport");
@@ -148,7 +168,10 @@ public class MainActivity extends Activity {
 				}
 			}
 			
-			else{	//exit
+			/**
+			 * Exit button
+			 */
+			else{	
 				finish();
 				System.exit(0);
 			}

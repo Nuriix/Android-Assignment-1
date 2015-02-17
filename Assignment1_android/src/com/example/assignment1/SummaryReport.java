@@ -6,6 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * This class will display the summary report for 
+ * the whole group.
+ * 
+ * @author Li Zheng Hao & Julie Manirath
+ *
+ */
 public class SummaryReport extends Activity {
 
 	TextView t;
@@ -29,6 +36,10 @@ public class SummaryReport extends Activity {
 		t.setText("Top two best student are: " + "\n" + bundle.getString("bestStudent"));
 	}
 	
+	/**
+	 * Back to main activity
+	 * @param v 
+	 */
 	public void onClick(View v){
 		startActivity(new Intent(this, MainActivity.class).setFlags(
 					Intent.FLAG_ACTIVITY_NEW_TASK | 

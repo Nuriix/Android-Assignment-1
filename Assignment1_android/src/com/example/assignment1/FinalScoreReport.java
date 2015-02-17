@@ -5,6 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * This class will display a report that will
+ * display the final score report for one student. 
+ * 
+ * @author Li Zheng Hao & Julie Manirath
+ *
+ */
 public class FinalScoreReport extends Activity {
 	
 	TextView t;
@@ -38,6 +45,10 @@ public class FinalScoreReport extends Activity {
 		t.setText("Score in letter: " + bundle.getString("scoreInLetter"));
 	}
 	
+	/**
+	 * Back to main activity
+	 * @param v 
+	 */
 	public void onClick(View v){
 		finish();
 	}
